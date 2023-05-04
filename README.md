@@ -196,4 +196,18 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 </details>
 
+</details>
 
+<details>
+  <summary>
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/Week%209">
+      Week 9: ARM Architecture and COTS &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
+    </a>
+    
+  </summary>
+  
+  <span></span>
+  
+- [ ] [COTS](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/Week%209/COTS_ARM)
+
+</details>
