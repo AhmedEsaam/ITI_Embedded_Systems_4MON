@@ -96,7 +96,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
 - [x] [Session 15. DIO Registers Basics](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%203%20-%20Algorithms%20%26%20AVR%20Interfacing%20copy/Session%2015%20-%20DIO)
 - [x] [Session 16. DIO With LEDs](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%203%20-%20Algorithms%20%26%20AVR%20Interfacing%20copy/Session%2016%20-%20DIO)
-- [x] [Session 17. DIO Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 17. DIO Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%203%20-%20Algorithms%20%26%20AVR%20Interfacing%20copy/Session%2017%20-%20DIO_Driver)
 
 </details>
 
@@ -129,7 +129,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 22. ADC Driver]()
+- [x] [Session 22. ADC Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%205%20-%20AVR%20Interfacing%20(ADC%20%26%20Timer)/Session%2022%20-%20EXTI_Driver%20%26%20ADC_Driver)
 - [x] [Session 23. ADC With LCD and LEDs](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%205%20-%20AVR%20Interfacing%20(ADC%20%26%20Timer)/Session%2023%20-%20ADC)
 - [x] [Session 24. LM35](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%205%20-%20AVR%20Interfacing%20(ADC%20%26%20Timer)/Session%2024%20-%20LM35)
 
