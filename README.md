@@ -24,17 +24,17 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 2. C Programming Basics](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 3. Conditional Statements](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 4. Arrays, Functions, and Loops](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 5. Pointers](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 2. C Programming Basics](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%201%20-%20C%20Programming/Session%202)
+- [x] [Session 3. Conditional Statements](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%201%20-%20C%20Programming/Session%203)
+- [x] [Session 4. Arrays, Functions, and Loops](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%201%20-%20C%20Programming/Session%204)
+- [x] [Session 5. Pointers](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%201%20-%20C%20Programming/Session%205)
 
 </details>
 
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%202%20-%20Data%20Structures">
       Week 2: Data Structures &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&emsp;&emsp;&ensp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
@@ -42,16 +42,16 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 9. Linked List](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 10. Stack](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 11. Queue](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 9. Linked List](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%202%20-%20Data%20Structures/Session%209%20-%20Linked%20List)
+- [x] [Session 10. Stack](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%202%20-%20Data%20Structures/Session%2010%20-%20Stack)
+- [x] [Session 11. Queue](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%202%20-%20Data%20Structures/Session%2011%20-%20Queue)
 
 </details>
 
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%203%20-%20Algorithms%20%26%20AVR%20Interfacing">
       Week 3: Algorithms &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
@@ -59,13 +59,13 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 12. Binary Search](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 12. Binary Search](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%203%20-%20Algorithms%20%26%20AVR%20Interfacing/Session%2012%20-%20Algorithms)
 
 </details>
 
 
 
-<a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+<a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/C_and_DSA_Project">
   C Programming and Data Structures Project &emsp;&emsp;&ensp;&ensp;&nbsp;<img src="https://progress-bar.dev/100/?title=Done">
 </a>
 
@@ -78,7 +78,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 </details>
 
 
-<a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+<a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/AVR_COTS">
   COTS &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
 </a>
 
@@ -86,7 +86,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%203%20-%20Algorithms%20%26%20AVR%20Interfacing%20copy">
       Week 3: DIO &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
@@ -103,7 +103,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%204%20-%20AVR%20Interfacing">
       Week 4: LCD, Keybad, and External Interrupt &emsp;&emsp;<img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
@@ -121,7 +121,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%205%20-%20AVR%20Interfacing%20(ADC%20%26%20Timer)">
       Week 5: ADC &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
@@ -138,7 +138,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%206%20-%20AVR%20interfacing%20(Timer)">
       Week 6: Timers &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
@@ -157,7 +157,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%207%20-%20AVR%20Communication%20Protocols%20%26%20RTOS">
       Week 7: Communication Protocols and RTOS &emsp;&ensp; <img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
@@ -175,7 +175,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%208%20-%20AVR%20Switches%20%26%20Motors">
       Week 8: Switches and Motors &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
