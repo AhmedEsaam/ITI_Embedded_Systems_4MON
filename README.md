@@ -166,6 +166,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   <span></span>
   
 - [x] [Session 30. UART and SPI](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%207%20-%20AVR%20Communication%20Protocols%20%26%20RTOS/Session%2030%20-%20UART%20%26%20SPI)
+- [x] [Challenge - Servo and_Leds_Control_By_UART](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%207%20-%20AVR%20Communication%20Protocols%20%26%20RTOS/Challenge%20-%20Servo%20and_Leds_Control_By_UART)
 - [x] [Session 32. TWI](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%207%20-%20AVR%20Communication%20Protocols%20%26%20RTOS/Session%2032%20-%20TWI)
 - [x] [Session 33. RTOS](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%207%20-%20AVR%20Communication%20Protocols%20%26%20RTOS/Session%2033%20-%20RTOS)
 
