@@ -16,7 +16,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 <details>
   <summary>
-    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON">
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/C_Programming/Week%201%20-%20C%20Programming">
       Week 1: C Programming	Concepts &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
     </a>
     
