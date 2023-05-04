@@ -79,7 +79,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 
 <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/AVR_COTS">
-  COTS &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
+  AVR COTS &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
 </a>
 
 <span></span>
