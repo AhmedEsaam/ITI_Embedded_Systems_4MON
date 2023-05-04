@@ -1,0 +1,111 @@
+/*
+ * ----------------------------------------------------------------------------------
+ * Filename     :	ICU.c
+ *
+ * Author       :	Ahmed Essam El-Mogy
+ * Created on   :	APR 12, 2023
+ * Version      :	v1.0
+ * C Standard   :	C99
+ * Compiler     :	AVR GCC
+ * ----------------------------------------------------------------------------------
+ *
+ * ----------------------------------------------------------------------------------
+ * Version		Date 		        Author			        Description
+ * v1.0		    APR 12, 2023		Ahmed Essam El-Mogy		Initial Creation
+ * ----------------------------------------------------------------------------------
+ */
+#include "../LIB/STD_TYPES.h"
+#include "../LIB/BIT_MATH.h"
+
+#include "../HAL/LCD/LCD_interface.h"
+
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../MCAL/GIE/GIE_interface.h"
+#include "../MCAL/EXTI/EXTI_interface.h"
+#include "../MCAL/Timer/Timer_interface.h"
+
+void ICU_HW(void);
+
+volatile u16 App_u16Reading1;
+volatile u16 App_u16Reading2;
+volatile u16 App_u16Reading3;
+volatile u16 App_u16OnTicks = 0;
+volatile u16 App_u16PeriodTicks = 0;
+
+EXTI_t ext1 = {INT0, RISING_EDGE};
+
+void main(void)
+{
+    /* Set PB3 Output */
+    MDIO_voidSetPinDir(DIO_PORT_B, PIN3, OUTPUT);
+    /* Set PD6 Input */
+    MDIO_voidSetPinDir(DIO_PORT_D, PIN2, INPUT_NO_PULLUP);
+
+    /* Initialize LCD */
+    LCD_voidInit();
+    
+    /* Initialize Timer 0 */
+    TIMER0_voidInit();
+    /* Generate PWM Signal with Period Time = 256usec, On Time = 50usec */
+    TIMER0_voidSetCTCCompareMatchValue(50);
+
+    /* Interrupt */
+    /* Set The Interrupt Callback */
+    EXTI_voidTriggerEdge(&ext1);
+    EXTI_voidSetCallback(&ext1, &ICU_HW);
+    EXTI_voidEnable(&ext1);
+
+    /* Enable Global Interrupt */
+    GIE_voidEnableGlobalInterrupt();
+    /* Initialize Timer 1 */
+    TIMER1_voidInit();
+
+    while (1)
+    {
+        /* Stuck In This Line Till The OnTicks & PeriodTicks Are Changed */
+        while(App_u16OnTicks == 0 || App_u16PeriodTicks == 0);
+        LCD_voidGoToXY(0, 0);
+        LCD_voidSendString("P.T = ");
+        LCD_voidSendNumber(App_u16PeriodTicks);
+        LCD_voidGoToXY(1, 0);
+        LCD_voidSendString("O.T = ");
+        LCD_voidSendNumber(App_u16OnTicks);
+
+    }
+    
+}
+
+void ICU_HW(void)
+{
+    static u8 Local_u8COunter = 0;
+    Local_u8COunter++;
+    if(Local_u8COunter == 1) // You are in state 1
+    {
+        /* Read The TCNT0 Register And Store Its Value in Reading1 Variable */
+        App_u16Reading1 = TIMER1_u8GetCounterValue();
+        /* Change The Sense Trigger Signal To Be Falling Edge */
+        ext1.EXTI_u8IntSense = FALLING_EDGE;
+        EXTI_voidTriggerEdge(&ext1);
+    }
+    else if(Local_u8COunter == 2) // You are in state 2
+    {
+        /* Read The TCNT0 Register And Store Its Value in Reading2 Variable */
+        App_u16Reading2 = TIMER1_u8GetCounterValue();
+
+        /* Calculate On Ticks */
+        App_u16OnTicks = App_u16Reading2 - App_u16Reading1 - 1;
+    }
+    else if(Local_u8COunter == 3) // You are in state 3
+    {
+        /* Read The TCNT0 Register And Store Its Value in Reading3 Variable */
+        App_u16Reading3 = TIMER1_u8GetCounterValue();
+
+        /* Calculate Period Ticks */
+        App_u16PeriodTicks = App_u16Reading3 - App_u16Reading2 - 1;
+        /* Disable The EXTI0 Interrupt */
+        EXTI_voidDisable(&ext1);
+
+        /* Reset The Counter */
+        Local_u8COunter = 0;
+    }
+}
