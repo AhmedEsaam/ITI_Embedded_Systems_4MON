@@ -130,8 +130,8 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   <span></span>
   
 - [x] [Session 22. ADC Driver]()
-- [x] [Session 23. ADC With LCD and LEDs](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 24. LM35](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 23. ADC With LCD and LEDs](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%205%20-%20AVR%20Interfacing%20(ADC%20%26%20Timer)/Session%2023%20-%20ADC)
+- [x] [Session 24. LM35](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%205%20-%20AVR%20Interfacing%20(ADC%20%26%20Timer)/Session%2024%20-%20LM35)
 
 </details>
 
@@ -146,10 +146,10 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 25. Timer (OVF and CTC)](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 26. PWM Mode](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 27. Servo](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 28. ICU and Wachdog](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 25. Timer (OVF and CTC)](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%206%20-%20AVR%20interfacing%20(Timer)/Session%2025%20-%20Timer%20(OVF%20%26%20CTC))
+- [x] [Session 26. PWM Mode](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%206%20-%20AVR%20interfacing%20(Timer)/Session%2026%20-%20Timer%20(PWM))
+- [x] [Session 27. Servo](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%206%20-%20AVR%20interfacing%20(Timer)/Session%2027%20-%20Servo)
+- [x] [Session 28. ICU and Wachdog](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%206%20-%20AVR%20interfacing%20(Timer)/Session%2028%20-%20ICU%20%26%20WDT)
 
 </details>
 
@@ -165,9 +165,9 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 30. UART and SPI](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 31. TWI](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 32. RTOS](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 30. UART and SPI](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%207%20-%20AVR%20Communication%20Protocols%20%26%20RTOS/Session%2030%20-%20UART%20%26%20SPI)
+- [x] [Session 32. TWI](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%207%20-%20AVR%20Communication%20Protocols%20%26%20RTOS/Session%2032%20-%20TWI)
+- [x] [Session 33. RTOS](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%207%20-%20AVR%20Communication%20Protocols%20%26%20RTOS/Session%2033%20-%20RTOS)
 
 </details>
 
@@ -183,8 +183,8 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [H-Bridge with DC Motor Changing Direction](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Stepper Motor Changing Direction](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [H-Bridge with DC Motor Changing Direction](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%208%20-%20AVR%20Switches%20%26%20Motors/H_Bridge_With_DC_Motor_Changing_Direction)
+- [x] [Stepper Motor Changing Direction](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%208%20-%20AVR%20Switches%20%26%20Motors/Stepper_Motor_Change_Direction)
 
 </details>
 
