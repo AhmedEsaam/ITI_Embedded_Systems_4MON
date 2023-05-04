@@ -192,7 +192,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 ---
 <!-- =================================================================== ARM Interfacing ======================================================================= -->
 ### ARM Interfacing &emsp;&emsp;&ensp;
-<img src="https://progress-bar.dev/21/?title=In Progress&color=CD5888">  <!-- /24 -->
+<img src="https://progress-bar.dev/12/?title=In Progress&color=CD5888">  <!-- /24 -->
 
 </details>
 
