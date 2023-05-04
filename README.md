@@ -94,8 +94,8 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 15. DIO Registers Basics](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 16. DIO With LEDs](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 15. DIO Registers Basics](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%203%20-%20Algorithms%20%26%20AVR%20Interfacing%20copy/Session%2015%20-%20DIO)
+- [x] [Session 16. DIO With LEDs](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%203%20-%20Algorithms%20%26%20AVR%20Interfacing%20copy/Session%2016%20-%20DIO)
 - [x] [Session 17. DIO Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
 
 </details>
@@ -111,10 +111,10 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 18. LCD Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 19. LCD Labs and Assignments](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 20. Keybad](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
-- [x] [Session 21. EXTI](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 18. LCD Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%204%20-%20AVR%20Interfacing/Session%2018%20-%20LCD_Driver)
+- [x] [Session 19. LCD Labs and Assignments](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%204%20-%20AVR%20Interfacing/Session%2019%20-%20LCD_Driver)
+- [x] [Session 20. Keybad](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%204%20-%20AVR%20Interfacing/Session%2020%20-%20KPD_Driver)
+- [x] [Session 21. EXTI](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/AVR_Interfacing/Week%204%20-%20AVR%20Interfacing/Session%2021%20-%20EXTI_Driver)
 
 </details>
 
@@ -129,7 +129,7 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [x] [Session 22. ADC Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
+- [x] [Session 22. ADC Driver]()
 - [x] [Session 23. ADC With LCD and LEDs](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
 - [x] [Session 24. LM35](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON)
 
