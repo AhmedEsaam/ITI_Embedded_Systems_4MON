@@ -196,6 +196,12 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 
 </details>
 
+<a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/COTS_ARM">
+  ARM COTS &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; <img src="https://progress-bar.dev/12/?title=In Progress&color=CD5888">
+</a>
+
+<span></span>
+
 </details>
 
 <details>
@@ -208,6 +214,6 @@ This repository acts as a tracker for my progress throughout the diploma by incl
   
   <span></span>
   
-- [ ] [COTS](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/Week%209/COTS_ARM)
+- [x] [Blinking Led](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/Week%209/COTS_ARM)
 
 </details>
