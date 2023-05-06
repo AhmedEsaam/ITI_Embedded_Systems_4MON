@@ -25,7 +25,7 @@
 #include "GPIO_config.h"
 
 
-GPIO_Error_t MGPIO_voidOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinObj)
+GPIO_Error_t MGPIO_ErrOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinObj)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -148,7 +148,7 @@ GPIO_Error_t MGPIO_voidOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinOb
 }
 
 
-GPIO_Error_t MGPIO_voidInputPinConfig(GPIO_InputPin_t * Copy_pGPIO_InputPinObj)
+GPIO_Error_t MGPIO_ErrInputPinConfig(GPIO_InputPin_t * Copy_pGPIO_InputPinObj)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -213,7 +213,7 @@ GPIO_Error_t MGPIO_voidInputPinConfig(GPIO_InputPin_t * Copy_pGPIO_InputPinObj)
 }
 
 
-GPIO_Error_t MGPIO_voidSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMode)
+GPIO_Error_t MGPIO_ErrSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMode)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -251,7 +251,7 @@ GPIO_Error_t MGPIO_voidSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMo
 }
 
 
-GPIO_Error_t MGPIO_voidSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputType)
+GPIO_Error_t MGPIO_ErrSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputType)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -334,7 +334,7 @@ GPIO_Error_t MGPIO_voidSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u
 }
 
 
-GPIO_Error_t MGPIO_voidSetPinOutputSpeed(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputSpeed)
+GPIO_Error_t MGPIO_ErrSetPinOutputSpeed(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputSpeed)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -372,7 +372,7 @@ GPIO_Error_t MGPIO_voidSetPinOutputSpeed(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_
 }
 
 
-GPIO_Error_t MGPIO_voidSetPinPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinPullUpPullDown)
+GPIO_Error_t MGPIO_ErrSetPinPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinPullUpPullDown)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -410,7 +410,7 @@ GPIO_Error_t MGPIO_voidSetPinPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Co
 }
 
 
-GPIO_Error_t MGPIO_voidSetPinAlternativeFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinAlternativeFunction)
+GPIO_Error_t MGPIO_ErrSetPinAlternativeFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinAlternativeFunction)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -496,7 +496,7 @@ GPIO_Error_t MGPIO_voidSetPinAlternativeFunction(u8 Copy_u8Port, u8 Copy_u8Pin, 
 }
 
 
-GPIO_Error_t MGPIO_voidSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinValue)
+GPIO_Error_t MGPIO_ErrSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinValue)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -574,7 +574,7 @@ GPIO_Error_t MGPIO_voidSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinV
 }
 
 
-GPIO_Error_t MGPIO_voidGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8PinValue)
+GPIO_Error_t MGPIO_ErrGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8PinValue)
 {
     /* Create Varibale To Store Pin Value */
     u8 Local_u8PinValue;    
@@ -615,7 +615,7 @@ GPIO_Error_t MGPIO_voidGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8P
 }
 
 
-GPIO_Error_t MGPIO_voidLockPin(u8 Copy_u8Port, u8 Copy_u8Pin)
+GPIO_Error_t MGPIO_ErrLockPin(u8 Copy_u8Port, u8 Copy_u8Pin)
 {
     /* Create Variables To Help With Word-Accessing The LCKR Register */
     u32 Local_u32LockRegister;

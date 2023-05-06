@@ -190,18 +190,18 @@ typedef enum GPIO_Error_t
 }GPIO_Error_t;
 
 // Linking-Time Configuration
-GPIO_Error_t MGPIO_voidOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinObj);
-GPIO_Error_t MGPIO_voidInputPinConfig(GPIO_InputPin_t * Copy_pGPIO_InputPinObj);
+GPIO_Error_t MGPIO_ErrOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinObj);
+GPIO_Error_t MGPIO_ErrInputPinConfig(GPIO_InputPin_t * Copy_pGPIO_InputPinObj);
 // Post-Build Configuration
-GPIO_Error_t MGPIO_voidSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMode);
-GPIO_Error_t MGPIO_voidSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputType);
-GPIO_Error_t MGPIO_voidSetPinOutputSpeed(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputSpeed);
-GPIO_Error_t MGPIO_voidSetPinPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinPullUpPullDown);
-GPIO_Error_t MGPIO_voidSetPinAlternativeFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinAlternativeFunction);
+GPIO_Error_t MGPIO_ErrSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMode);
+GPIO_Error_t MGPIO_ErrSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputType);
+GPIO_Error_t MGPIO_ErrSetPinOutputSpeed(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputSpeed);
+GPIO_Error_t MGPIO_ErrSetPinPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinPullUpPullDown);
+GPIO_Error_t MGPIO_ErrSetPinAlternativeFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinAlternativeFunction);
 
-GPIO_Error_t MGPIO_voidSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinValue);
-GPIO_Error_t MGPIO_voidGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8PinValue);
-GPIO_Error_t MGPIO_voidLockPin(u8 Copy_u8Port, u8 Copy_u8Pin);
+GPIO_Error_t MGPIO_ErrSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinValue);
+GPIO_Error_t MGPIO_ErrGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8PinValue);
+GPIO_Error_t MGPIO_ErrLockPin(u8 Copy_u8Port, u8 Copy_u8Pin);
 
 
 #endif /* GPIO_INTERFACE_H */
