@@ -52,10 +52,80 @@ typedef struct
     volatile u32 DCKCFGR;
 }RCC_t;
 
-#define     RCC         (volatile RCC_t *) 0x40023800
+#define     RCC_BASE_ADDRESS            0x40023800
+
+#define     RCC                         ((volatile RCC_t *)RCC_BASE_ADDRESS)
 
 
-/*------------------------------ AHB1 ----------------------------*/
+/*---------------------------- Clock ----------------------------*/
+
+// RCC clock control register (RCC_CR)
+// HSI
+#define     CR_HSION                    0  
+#define     CR_HSIRDY                   1  
+#define     CR_HSITRIM_BIT_MASK         0xffffff07  
+#define     CR_HSICAL_BIT_MASK          0xffff00ff
+// HSE  
+#define     CR_HSEON                    16  
+#define     CR_HSERDY                   17  
+#define     CR_HSEBYP                   18
+#define     CR_CSSON                    19
+// PLL
+#define     CR_PLLON                    24  
+#define     CR_PLLRDY                   25  
+#define     CR_PLLI2SON                 26  
+#define     CR_PLLI2SRDY                27
+
+// RCC PLL configuration register (RCC_PLLCFGR)
+#define     PLLCFGR_PLLM_BIT_MASK       0xffffffc0
+#define     PLLCFGR_PLLN_BIT_MASK       0xffff803f
+#define     PLLCFGR_PLLP_BIT_MASK       0xfffcffff
+#define     PLLCFGR_PLLSRC              22
+#define     PLLCFGR_PLLQ_BIT_MASK       0xf0ffffff
+
+// RCC clock configuration register (RCC_CFGR)
+#define     CFGR_SW_BIT_MASK            0xfffffffc
+#define     CFGR_SWS_BIT_MASK           0xfffffff3
+#define     CFGR_HPRE_BIT_MASK          0xffffff0f
+#define     CFGR_PPRE1_BIT_MASK         0xffffe3ff
+#define     CFGR_PPRE2_BIT_MASK         0xffff1fff
+#define     CFGR_RTCPRE_BIT_MASK        0xffe0ffff
+#define     CFGR_MCO1_BIT_MASK          0xff9fffff
+#define     CFGR_MCO1_PRE_BIT_MASK      0xf8ffffff
+#define     CFGR_MCO2_BIT_MASK          0x3fffffff
+#define     CFGR_MCO2_PRE_BIT_MASK      0xc7ffffff
+#define     CFGR_I2SSCR                 23
+
+// RCC clock interrupt register (RCC_CIR)
+// Ready Interrupt Falgs
+#define     CIR_LSIRDYF                 0
+#define     CIR_LSERDYF                 1
+#define     CIR_HSIRDYF                 2
+#define     CIR_HSERDYF                 3
+#define     CIR_PLLRDYF                 4
+#define     CIR_PLLI2SRDYF              5
+// Ready Interrupt Enable
+#define     CIR_LSIRDYIE                8
+#define     CIR_LSERDYIE                9
+#define     CIR_HSIRDYIE                10
+#define     CIR_HSERDYIE                11
+#define     CIR_PLLRDYIE                12
+#define     CIR_PLLI2SRDYIE             13
+// Ready Interrupt Clear
+#define     CIR_LSIRDYC                 16
+#define     CIR_LSERDYC                 17
+#define     CIR_HSIRDYC                 18
+#define     CIR_HSERDYC                 19
+#define     CIR_PLLRDYC                 20
+#define     CIR_PLLI2SRDYC              21
+// Clock Security System Interrupt Flag
+#define     CIR_CSSF                    7
+// Clock security system interrupt clear
+#define     CIR_CSSC                    23
+
+
+
+/*----------------------------- AHB1 ----------------------------*/
 
 // RCC AHB1 peripheral reset register (RCC_AHB1RSTR)
 #define     AHB1RSTR_GPIOA_RST          0  
