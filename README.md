@@ -2,7 +2,7 @@
 
 ## Description
 
-The [ITI Intencive Code Camp (ICC)](https://www.iti.gov.eg/iti/programs/details/ICC) under the supervision of [Eng. Abdullah Moustafa](https://github.com/Abdullah-MAbdullah) focuses on `Embedded C` Programming, Writing drivers for `AVR Atmega32` and `ARM-based STM32 Black Pill` MCUs peripherals, `Communication Protocols`, `Testing`, `Automotive`, and Other embedded systems topics.
+The [ITI Intencive Code Camp (ICC)](https://www.iti.gov.eg/iti/programs/details/ICC) under the supervision of [Eng. Abdullah Moustafa](https://github.com/Abdullah731) focuses on `Embedded C` Programming, Writing drivers for `AVR Atmega32` and `ARM-based STM32 Black Pill` MCUs peripherals, `Communication Protocols`, `Testing`, `Automotive`, and Other embedded systems topics.
 
 This repository acts as a tracker for my progress throughout the diploma by including all `Assignments`, `Labs`, `Tasks`, and other `Practice Codes`.
 
