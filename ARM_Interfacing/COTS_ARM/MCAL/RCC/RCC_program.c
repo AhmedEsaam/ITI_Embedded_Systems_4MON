@@ -67,6 +67,12 @@ void MRCC_voidInit(void)
         #error "CPU_CLK_SOURCE Configuration Error"
 
     #endif
+
+    /* Set AHB Prescaler */
+    (RCC->CFGR) |= (AHB_PRESCALER << 4);
+
+    // APB1, APB2 Prescaler ...
+    
 }
 
 void MRCC_voidEnablePeripheralClock(u8 Copy_u8PeripheralBus, u8 Copy_u8PeripheralID)
