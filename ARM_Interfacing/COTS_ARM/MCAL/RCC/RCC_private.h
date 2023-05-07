@@ -96,6 +96,17 @@ typedef struct
 #define     CFGR_MCO2_PRE_BIT_MASK      0xc7ffffff
 #define     CFGR_I2SSCR                 23
 
+// AHB high-speed prescaler (APB1 and APB2)
+#define     APB1_2_DIVIDE_BY_2          0
+#define     APB1_2_DIVIDE_BY_4          1
+#define     APB1_2_DIVIDE_BY_8          2
+
+// AHB prescaler
+#define     SYSCLOCK_DIVIDE_BY_2        0 
+#define     SYSCLOCK_DIVIDE_BY_4        1 
+#define     SYSCLOCK_DIVIDE_BY_8        2 
+#define     SYSCLOCK_DIVIDE_BY_16       3
+
 // RCC clock interrupt register (RCC_CIR)
 // Ready Interrupt Falgs
 #define     CIR_LSIRDYF                 0

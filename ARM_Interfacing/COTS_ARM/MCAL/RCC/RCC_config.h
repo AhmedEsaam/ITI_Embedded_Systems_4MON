@@ -24,14 +24,28 @@
     SYS_CLK_HSE
     SYS_CLK_PLL
 */
-#define     CPU_CLK_SOURCE      RCC_SYS_CLK_HSI
+#define     CPU_CLK_SOURCE             RCC_SYS_CLK_HSI
 
 /* options:
     PLL_CLK_HSI
     PLL_CLK_HSE
 */
-#define     PLL_SOURCE          RCC_PLL_CLK_HSI
+#define     PLL_SOURCE                 RCC_PLL_CLK_HSI
 
+/* options:
+    SYSCLOCK_DIVIDE_BY_2
+    SYSCLOCK_DIVIDE_BY_4
+    SYSCLOCK_DIVIDE_BY_8
+    SYSCLOCK_DIVIDE_BY_16
+*/
+#define     SYSCLOCK_PRESCALER         SYSCLOCK_DIVIDE_BY_2
 
+/* options:
+    APB1_2_DIVIDE_BY_2
+    APB1_2_DIVIDE_BY_4
+    APB1_2_DIVIDE_BY_8
+    APB1_2_DIVIDE_BY_16
+*/
+#define     AHP_PRESCALER              APB1_2_DIVIDE_BY_2
 
 #endif /* RCC_CONFIG_H */
