@@ -51,8 +51,8 @@ SYSTICK_Error_t MSYSTICK_ErrSetPreoadValue(u32 Copy_u32PreloadValue);
 SYSTICK_Error_t MSYSTICK_ErrGetElapsedTime(u32 *Copy_pu32ElapsedTimeInMicroSec);
 SYSTICK_Error_t MSYSTICK_ErrGetRemainingTime(u32 *Copy_pu32RemainingTimeInMicroSec);
 
-void MSYSTICK_ErrSetIntervalSingle(void);
-void MSYSTICK_ErrSetIntervalPeriodic(void);
+void MSYSTICK_ErrSetIntervalSingle(void(*NotificationFunction)(void));
+void MSYSTICK_ErrSetIntervalPeriodic(void(*NotificationFunction)(void));
 
 
 #endif /* SYSTICK_INTERFACE_H_ */

@@ -29,6 +29,8 @@
 /* Global Variable To Save IntervalType */
 u8 Global_u8IntervalSinglePeriodic;
 
+void (*pvCallBackFunction)(void); 
+
 
 /**
  *@brief    Initialize SysTick Timer
@@ -184,12 +186,14 @@ SYSTICK_Error_t MSYSTICK_ErrGetRemainingTime(u32 *Copy_pu32RemainingTimeInMicroS
  *@brief    Set SysTick Timer Interval Type as Single
  *
 */
-void MSYSTICK_ErrSetIntervalSingle(void)
+void MSYSTICK_ErrSetIntervalSingle(void(*NotificationFunction)(void))
 {
+    pvCallBackFunction = NotificationFunction;
     /* Set Interval Type To Be Single */
     Global_u8IntervalSinglePeriodic = SYSTICK_INTERVAL_SINGLE;
-    /* SysTick Exception Interrupt enable */
-    SET_BIT(SYSTICK->CTRL, TICKINT);
+    // /* SysTick Exception Interrupt enable */
+    // SET_BIT(SYSTICK->CTRL, TICKINT);
+    
 }
 
 
@@ -197,12 +201,14 @@ void MSYSTICK_ErrSetIntervalSingle(void)
  *@brief    Set SysTick Timer Interval Type as Periodic
  *
 */
-void MSYSTICK_ErrSetIntervalPeriodic(void)
+void MSYSTICK_ErrSetIntervalPeriodic(void(*NotificationFunction)(void))
 {
+    pvCallBackFunction = NotificationFunction;
+
     /* Set Interval Type To Be Periodic */
     Global_u8IntervalSinglePeriodic = SYSTICK_INTERVAL_PERIODIC;
     /* SysTick Exception Interrupt enable */
-    SET_BIT(SYSTICK->CTRL, TICKINT);
+    // SET_BIT(SYSTICK->CTRL, TICKINT);
 }
 
 
