@@ -24,9 +24,18 @@
 #define         SYSTICK_CLK_AHB_DIVIDED_BY_8        0 
 #define         SYSTICK_CLK_AHB                     1
 
+// SysTick Enable ...............................
+#define         SYSTICK_ENABLE                      0 
+#define         SYSTICK_DISABLE                     1
+
 // SysTick Interval Type ...............................
 #define         SYSTICK_INTERVAL_SINGLE             0 
 #define         SYSTICK_INTERVAL_PERIODIC           1
+
+// SysTick Interrupt Enable ............................
+#define         SYSTICK_INTERRUPT_ENABLE            1 
+#define         SYSTICK_INTERRUPT_DISABLE           0
+
 
 
 typedef enum SYSTICK_Error_t
@@ -38,6 +47,7 @@ typedef enum SYSTICK_Error_t
 
 void MSYSTICK_ErrInit(void);
 SYSTICK_Error_t MSYSTICK_ErrSetBusyWait(u32 Copy_u32BusyWaitInMicroSec);
+SYSTICK_Error_t MSYSTICK_ErrSetPreoadValue(u32 Copy_u32PreloadValue);
 SYSTICK_Error_t MSYSTICK_ErrGetElapsedTime(u32 *Copy_pu32ElapsedTimeInMicroSec);
 SYSTICK_Error_t MSYSTICK_ErrGetRemainingTime(u32 *Copy_pu32RemainingTimeInMicroSec);
 

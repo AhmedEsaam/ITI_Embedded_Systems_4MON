@@ -27,6 +27,12 @@
 */
 #define     SYSTICK_CLK_SOURCE              SYSTICK_CLK_AHB_DIVIDED_BY_8
 
+#define     SYSTICK_INTERRUPT_EN            SYSTICK_INTERRUPT_ENABLE
+
+#define     SYSTICK_EN                      SYSTICK_ENABLE
+
+
+
 
 
 #endif /* SYSTICK_CONFIG_H_*/
