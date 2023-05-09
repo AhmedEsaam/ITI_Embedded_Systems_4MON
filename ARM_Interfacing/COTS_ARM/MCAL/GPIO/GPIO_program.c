@@ -25,17 +25,20 @@
 #include "GPIO_config.h"
 
 
-GPIO_Error_t MGPIO_ErrOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinObj)
+GPIO_Error_t MGPIO_ErrOutputPinConfig(GPIO_Pin_t * Copy_pGPIO_PinObj)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
     Local_u8GPIOErrorState = GPIO_OK;
 
     /* Checking Port Name, Pin Number, Output Type, Output Speed, Alternate Function */
-    if( Copy_pGPIO_OutputPinObj->PortName           >   GPIO_PORTC              ||
-        Copy_pGPIO_OutputPinObj->PinNum             >   GPIO_PIN15              ||
-        Copy_pGPIO_OutputPinObj->OutputType         >   GPIO_OUTPUT_OPEN_DRAIN  ||
-        Copy_pGPIO_OutputPinObj->OutputSpeed        >   GPIO_VERY_HIGH_SPEED
+    if( Copy_pGPIO_PinObj->PortName           >   GPIO_PORTC                ||
+        Copy_pGPIO_PinObj->PinNum             >   GPIO_PIN15                ||
+        Copy_pGPIO_PinObj->PinMode            >   GPIO_ALTERNATE_FUNCTION   ||
+        Copy_pGPIO_PinObj->OutputType         >   GPIO_OUTPUT_OPEN_DRAIN    ||
+        Copy_pGPIO_PinObj->OutputSpeed        >   GPIO_VERY_HIGH_SPEED      ||
+        Copy_pGPIO_PinObj->PullUpPullDown     >   GPIO_PULL_DOWN            ||
+        Copy_pGPIO_PinObj->ALternateFunction  >   GPIO_AF15
         )
     {
         /* Change Error State */
@@ -44,24 +47,24 @@ GPIO_Error_t MGPIO_ErrOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinObj
     else
     {
         /* Check for The Port Name */
-        switch (Copy_pGPIO_OutputPinObj->PortName)
+        switch (Copy_pGPIO_PinObj->PortName)
         {
         case GPIO_PORTA:
-            /* Set The Mode Bits of the Specific Pin to Be Output */
-            (GPIOA->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-            (GPIOA->MODER) |=  ((GPIO_OUTPUT)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
+            /* Set The Mode Bits of the Specific Pin */
+            (GPIOA->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOA->MODER) |=  ((Copy_pGPIO_PinObj->PinMode)<<(Copy_pGPIO_PinObj->PinNum * 2));
 
             /* Check For Pin Output Type */
-            switch (Copy_pGPIO_OutputPinObj->OutputType)
+            switch (Copy_pGPIO_PinObj->OutputType)
             {
             case GPIO_OUTPUT_PUSH_PULL:
                 /* Set Pin Output Type To 'Push/Pull' */
-                CLR_BIT(GPIOA->OTYPER, Copy_pGPIO_OutputPinObj->PinNum);
+                CLR_BIT(GPIOA->OTYPER, Copy_pGPIO_PinObj->PinNum);
                 break;
 
             case GPIO_OUTPUT_OPEN_DRAIN:
                 /* Set Pin Output Type To 'Open Drain' */
-                SET_BIT(GPIOA->OTYPER, Copy_pGPIO_OutputPinObj->PinNum);
+                SET_BIT(GPIOA->OTYPER, Copy_pGPIO_PinObj->PinNum);
                 break;
             
             default:
@@ -71,133 +74,146 @@ GPIO_Error_t MGPIO_ErrOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinObj
             }
 
             /* Set Pin Specific Output Speed by Changing Output Speed Bits */
-            (GPIOA->OSPEEDR) &= ~((OSPEEDR_BIT_MASK)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-            (GPIOA->OSPEEDR) |=  ((Copy_pGPIO_OutputPinObj->OutputSpeed)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
+            (GPIOA->OSPEEDR) &= ~((OSPEEDR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOA->OSPEEDR) |=  ((Copy_pGPIO_PinObj->OutputSpeed)<<(Copy_pGPIO_PinObj->PinNum * 2));
 
-        break;
+            /* Set Pin Input PullUp/PullDown Configuration */
+            (GPIOA->PUPDR) &= ~((PUPDR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOA->PUPDR) |=  ((Copy_pGPIO_PinObj->PullUpPullDown)<<(Copy_pGPIO_PinObj->PinNum * 2));
 
-        case GPIO_PORTB:
-            /* Set The Mode Bits of the Specific Pin to Be Output */
-            (GPIOB->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-            (GPIOB->MODER) |=  ((GPIO_OUTPUT)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-
-            /* Check For Pin Output Type */
-            switch (Copy_pGPIO_OutputPinObj->OutputType)
+            /* Set Alternate Function */
+            /* If Pin Number is from 0 to 7, Use AFRL Register */
+            if (Copy_pGPIO_PinObj->PinNum <= 7)
             {
-            case GPIO_OUTPUT_PUSH_PULL:
-                /* Set Pin Output Type To 'Push/Pull' */
-                CLR_BIT(GPIOB->OTYPER, Copy_pGPIO_OutputPinObj->PinNum);
-                break;
-
-            case GPIO_OUTPUT_OPEN_DRAIN:
-                /* Set Pin Output Type To 'Open Drain' */
-                SET_BIT(GPIOB->OTYPER, Copy_pGPIO_OutputPinObj->PinNum);
-                break;
-            
-            default:
-                /* Change Error State */
-                Local_u8GPIOErrorState = GPIO_PinOutputTypeInvalidConfiguration;
-                break;
+                /* Set Pin Alternate Function Configuration */
+                (GPIOA->AFRL) &= ~((AFR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 4));
+                (GPIOA->AFRL) |=  ((Copy_pGPIO_PinObj->ALternateFunction)<<(Copy_pGPIO_PinObj->PinNum * 4));
             }
-
-            /* Set Pin Specific Output Speed by Changing Output Speed Bits */
-            (GPIOB->OSPEEDR) &= ~((OSPEEDR_BIT_MASK)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-            (GPIOB->OSPEEDR) |=  ((Copy_pGPIO_OutputPinObj->OutputSpeed)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-
-        break;
-
-        case GPIO_PORTC:
-            /* Set The Mode Bits of the Specific Pin to Be Output */
-            (GPIOC->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-            (GPIOC->MODER) |=  ((GPIO_OUTPUT)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-
-            /* Check For Pin Output Type */
-            switch (Copy_pGPIO_OutputPinObj->OutputType)
+            /* If Pin Number is from 8 to 15, Use AFRH Register */
+            else if (Copy_pGPIO_PinObj->PinNum > 7)
             {
-            case GPIO_OUTPUT_PUSH_PULL:
-                /* Set Pin Output Type To 'Push/Pull' */
-                CLR_BIT(GPIOC->OTYPER, Copy_pGPIO_OutputPinObj->PinNum);
-                break;
-
-            case GPIO_OUTPUT_OPEN_DRAIN:
-                /* Set Pin Output Type To 'Open Drain' */
-                SET_BIT(GPIOC->OTYPER, Copy_pGPIO_OutputPinObj->PinNum);
-                break;
-            
-            default:
-                /* Change Error State */
-                Local_u8GPIOErrorState = GPIO_PinOutputTypeInvalidConfiguration;
-                break;
+                /* Set Pin Alternate Function Configuration */
+                (GPIOA->AFRH) &= ~((AFR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 4));
+                (GPIOA->AFRH) |=  ((Copy_pGPIO_PinObj->ALternateFunction)<<(Copy_pGPIO_PinObj->PinNum * 4));
             }
-
-            /* Set Pin Specific Output Speed by Changing Output Speed Bits */
-            (GPIOC->OSPEEDR) &= ~((OSPEEDR_BIT_MASK)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-            (GPIOC->OSPEEDR) |=  ((Copy_pGPIO_OutputPinObj->OutputSpeed)<<(Copy_pGPIO_OutputPinObj->PinNum * 2));
-
-        break;
-        
-        default:
-            /* Change Error State */
-            Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+            else
+            {
+                /* Change Error State */
+                Local_u8GPIOErrorState = GPIO_PinNumberInvalidConfiguration;
+            }
             break;
-        }
-    }
-
-    /* return Error State */
-    return Local_u8GPIOErrorState;
-}
-
-
-GPIO_Error_t MGPIO_ErrInputPinConfig(GPIO_InputPin_t * Copy_pGPIO_InputPinObj)
-{
-    /* Set Error Handling Initial State */
-    GPIO_Error_t Local_u8GPIOErrorState;
-    Local_u8GPIOErrorState = GPIO_OK;
-
-    /* Checking Port Name, Pin Number, Output Type, Output Speed, Alternate Function */
-    if( Copy_pGPIO_InputPinObj->PortName           >   GPIO_PORTC       ||
-        Copy_pGPIO_InputPinObj->PinNum             >   GPIO_PIN15       ||
-        Copy_pGPIO_InputPinObj->PullUpPullDown     >   GPIO_PULL_DOWN
-        )
-    {
-        /* Change Error State */
-        Local_u8GPIOErrorState = GPIO_InputPinInvalidConfiguration;
-    }
-    else
-    {
-        /* Check for The Port Name */
-        switch (Copy_pGPIO_InputPinObj->PortName)
-        {
-        case GPIO_PORTA:
-            /* Set The Mode Bits of the Specific Pin to be Input */
-            (GPIOA->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
-            (GPIOA->MODER) |=  ((GPIO_INPUT)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
-
-            /* Set Pin Input PullUp/PullDown Configuration */
-            (GPIOA->PUPDR) &= ~((PUPDR_BIT_MASK)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
-            (GPIOA->PUPDR) |=  ((Copy_pGPIO_InputPinObj->PullUpPullDown)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
 
         break;
 
         case GPIO_PORTB:
-            /* Set The Mode Bits of the Specific Pin to be Input */
-            (GPIOB->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
-            (GPIOB->MODER) |=  ((GPIO_INPUT)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
+            /* Set The Mode Bits of the Specific Pin */
+            (GPIOB->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOB->MODER) |=  ((Copy_pGPIO_PinObj->PinMode)<<(Copy_pGPIO_PinObj->PinNum * 2));
+
+            /* Check For Pin Output Type */
+            switch (Copy_pGPIO_PinObj->OutputType)
+            {
+            case GPIO_OUTPUT_PUSH_PULL:
+                /* Set Pin Output Type To 'Push/Pull' */
+                CLR_BIT(GPIOB->OTYPER, Copy_pGPIO_PinObj->PinNum);
+                break;
+
+            case GPIO_OUTPUT_OPEN_DRAIN:
+                /* Set Pin Output Type To 'Open Drain' */
+                SET_BIT(GPIOB->OTYPER, Copy_pGPIO_PinObj->PinNum);
+                break;
+            
+            default:
+                /* Change Error State */
+                Local_u8GPIOErrorState = GPIO_PinOutputTypeInvalidConfiguration;
+                break;
+            }
+
+            /* Set Pin Specific Output Speed by Changing Output Speed Bits */
+            (GPIOB->OSPEEDR) &= ~((OSPEEDR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOB->OSPEEDR) |=  ((Copy_pGPIO_PinObj->OutputSpeed)<<(Copy_pGPIO_PinObj->PinNum * 2));
 
             /* Set Pin Input PullUp/PullDown Configuration */
-            (GPIOB->PUPDR) &= ~((PUPDR_BIT_MASK)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
-            (GPIOB->PUPDR) |=  ((Copy_pGPIO_InputPinObj->PullUpPullDown)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
+            (GPIOB->PUPDR) &= ~((PUPDR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOB->PUPDR) |=  ((Copy_pGPIO_PinObj->PullUpPullDown)<<(Copy_pGPIO_PinObj->PinNum * 2));
+
+            /* Set Alternate Function */
+            /* If Pin Number is from 0 to 7, Use AFRL Register */
+            if (Copy_pGPIO_PinObj->PinNum <= 7)
+            {
+                /* Set Pin Alternate Function Configuration */
+                (GPIOB->AFRL) &= ~((AFR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 4));
+                (GPIOB->AFRL) |=  ((Copy_pGPIO_PinObj->ALternateFunction)<<(Copy_pGPIO_PinObj->PinNum * 4));
+            }
+            /* If Pin Number is from 8 to 15, Use AFRH Register */
+            else if (Copy_pGPIO_PinObj->PinNum > 7)
+            {
+                /* Set Pin Alternate Function Configuration */
+                (GPIOB->AFRH) &= ~((AFR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 4));
+                (GPIOB->AFRH) |=  ((Copy_pGPIO_PinObj->ALternateFunction)<<(Copy_pGPIO_PinObj->PinNum * 4));
+            }
+            else
+            {
+                /* Change Error State */
+                Local_u8GPIOErrorState = GPIO_PinNumberInvalidConfiguration;
+            }
+            break;
 
         break;
 
         case GPIO_PORTC:
-            /* Set The Mode Bits of the Specific Pin to be Input */
-            (GPIOC->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
-            (GPIOC->MODER) |=  ((GPIO_INPUT)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
+            /* Set The Mode Bits of the Specific Pin */
+            (GPIOC->MODER) &= ~((MODER_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOC->MODER) |=  ((Copy_pGPIO_PinObj->PinMode)<<(Copy_pGPIO_PinObj->PinNum * 2));
+
+            /* Check For Pin Output Type */
+            switch (Copy_pGPIO_PinObj->OutputType)
+            {
+            case GPIO_OUTPUT_PUSH_PULL:
+                /* Set Pin Output Type To 'Push/Pull' */
+                CLR_BIT(GPIOC->OTYPER, Copy_pGPIO_PinObj->PinNum);
+                break;
+
+            case GPIO_OUTPUT_OPEN_DRAIN:
+                /* Set Pin Output Type To 'Open Drain' */
+                SET_BIT(GPIOC->OTYPER, Copy_pGPIO_PinObj->PinNum);
+                break;
+            
+            default:
+                /* Change Error State */
+                Local_u8GPIOErrorState = GPIO_PinOutputTypeInvalidConfiguration;
+                break;
+            }
+
+            /* Set Pin Specific Output Speed by Changing Output Speed Bits */
+            (GPIOC->OSPEEDR) &= ~((OSPEEDR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOC->OSPEEDR) |=  ((Copy_pGPIO_PinObj->OutputSpeed)<<(Copy_pGPIO_PinObj->PinNum * 2));
 
             /* Set Pin Input PullUp/PullDown Configuration */
-            (GPIOC->PUPDR) &= ~((PUPDR_BIT_MASK)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
-            (GPIOC->PUPDR) |=  ((Copy_pGPIO_InputPinObj->PullUpPullDown)<<(Copy_pGPIO_InputPinObj->PinNum * 2));
+            (GPIOC->PUPDR) &= ~((PUPDR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 2));
+            (GPIOC->PUPDR) |=  ((Copy_pGPIO_PinObj->PullUpPullDown)<<(Copy_pGPIO_PinObj->PinNum * 2));
+
+            /* Set Alternate Function */
+            /* If Pin Number is from 0 to 7, Use AFRL Register */
+            if (Copy_pGPIO_PinObj->PinNum <= 7)
+            {
+                /* Set Pin Alternate Function Configuration */
+                (GPIOC->AFRL) &= ~((AFR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 4));
+                (GPIOC->AFRL) |=  ((Copy_pGPIO_PinObj->ALternateFunction)<<(Copy_pGPIO_PinObj->PinNum * 4));
+            }
+            /* If Pin Number is from 8 to 15, Use AFRH Register */
+            else if (Copy_pGPIO_PinObj->PinNum > 7)
+            {
+                /* Set Pin Alternate Function Configuration */
+                (GPIOC->AFRH) &= ~((AFR_BIT_MASK)<<(Copy_pGPIO_PinObj->PinNum * 4));
+                (GPIOC->AFRH) |=  ((Copy_pGPIO_PinObj->ALternateFunction)<<(Copy_pGPIO_PinObj->PinNum * 4));
+            }
+            else
+            {
+                /* Change Error State */
+                Local_u8GPIOErrorState = GPIO_PinNumberInvalidConfiguration;
+            }
+            break;
 
         break;
         

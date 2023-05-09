@@ -61,7 +61,7 @@ void MRCC_voidInit(void)
             (RCC->CFGR) &= CFGR_SW_BIT_MASK;
             (RCC->CFGR) |= RCC_SYS_CLK_PLL;
         #else
-            #error "RCC PLL_SOURCE Configuration Error"AHB1ENR_CRC_EN
+            #error "RCC PLL_SOURCE Configuration Error"
         #endif 
     #else
         #error "CPU_CLK_SOURCE Configuration Error"

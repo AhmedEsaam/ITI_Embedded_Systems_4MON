@@ -16,6 +16,7 @@
  * v1.0		    MAY 5, 2023 		Ahmed Essam El-Mogy		Initial Creation
  * ----------------------------------------------------------------------------------
  */
+
 #ifndef GPIO_INTERFACE_H
 #define GPIO_INTERFACE_H
 
@@ -116,65 +117,21 @@
 #define     RESET_PIN14                         0x40000000
 #define     RESET_PIN15                         0x80000000
 
-// Set Pin Value Array
-u32 Global_u32SetPin[16] = {
-    0x1,
-    0x2,
-    0x4,
-    0x8,
-    0x10,
-    0x20,
-    0x40,
-    0x80,
-    0x100,
-    0x200,
-    0x400,
-    0x800,
-    0x1000,
-    0x2000,
-    0x4000,
-    0x8000
-};
-
-// Set Pin Value Array
-u32 Global_u32ResetPin[16] = {
-    0x10000,
-    0x20000,
-    0x40000,
-    0x80000,
-    0x100000,
-    0x200000,
-    0x400000,
-    0x800000,
-    0x1000000,
-    0x2000000,
-    0x4000000,
-    0x8000000,
-    0x10000000,
-    0x20000000,
-    0x40000000,
-    0x80000000
-};
-
 // GPIO Pin Values
 #define     LOW                                 0
 #define     HIGH                                1
 
 
-typedef struct GPIO_OutputPin_t
+typedef struct GPIO_Pin_t
 {
     u8 PortName;
     u8 PinNum;
+    u8 PinMode;
     u8 OutputType;
     u8 OutputSpeed;
-}GPIO_OutputPin_t;
-
-typedef struct GPIO_InputPin_t
-{
-    u8 PortName;
-    u8 PinNum;
     u8 PullUpPullDown;
-}GPIO_InputPin_t;
+    u8 ALternateFunction;
+}GPIO_Pin_t;
 
 // Error Handling
 typedef enum GPIO_Error_t
@@ -190,8 +147,8 @@ typedef enum GPIO_Error_t
 }GPIO_Error_t;
 
 // Linking-Time Configuration
-GPIO_Error_t MGPIO_ErrOutputPinConfig(GPIO_OutputPin_t * Copy_pGPIO_OutputPinObj);
-GPIO_Error_t MGPIO_ErrInputPinConfig(GPIO_InputPin_t * Copy_pGPIO_InputPinObj);
+GPIO_Error_t MGPIO_ErrPinConfig(GPIO_OutputPin_t * Copy_pGPIO_PinObj);
+
 // Post-Build Configuration
 GPIO_Error_t MGPIO_ErrSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMode);
 GPIO_Error_t MGPIO_ErrSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputType);
@@ -202,6 +159,9 @@ GPIO_Error_t MGPIO_ErrSetPinAlternativeFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u
 GPIO_Error_t MGPIO_ErrSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinValue);
 GPIO_Error_t MGPIO_ErrGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8PinValue);
 GPIO_Error_t MGPIO_ErrLockPin(u8 Copy_u8Port, u8 Copy_u8Pin);
+
+// Port Functions
+GPIO_Error_t MGPIO_ErrSetPortMode(u8 Copy_u8Port, u8 Copy_u8PinMode);
 
 
 #endif /* GPIO_INTERFACE_H */
