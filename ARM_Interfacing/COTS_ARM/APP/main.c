@@ -18,6 +18,7 @@ int main()
 
 	while(1)
 	{
+		// 10 - 0 down count then upcount on two 7 segment
 		MGPIO_ErrSetPinValue(GPIO_PORTA, GPIO_PIN0, HIGH);
 		MSYSTICK_ErrSetBusyWait(1000000);
 		MGPIO_ErrSetPinValue(GPIO_PORTA, GPIO_PIN0, LOW);
