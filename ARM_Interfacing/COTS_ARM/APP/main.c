@@ -61,7 +61,7 @@ int main()
 				{
 					MGPIO_ErrSetPortSpecificValue(COLUMNS_PORT, Local_u8ColumnsPortValues[Local_u8ColumnsCounter]);
 					MGPIO_ErrSetPortSpecificValue(ROWS_PORT, Local_u8AnimatedWord[Local_u8FramesdCounter + Local_u8ColumnsCounter]);
-					MSYSTICK_ErrSetBusyWait(1000);
+					MSYSTICK_ErrSetBusyWait(150);
 				}
 			}
 		}
