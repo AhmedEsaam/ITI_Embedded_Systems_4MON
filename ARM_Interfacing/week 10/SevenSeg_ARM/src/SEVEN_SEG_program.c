@@ -79,21 +79,6 @@ void SEVEN_SEG_voidSendDigit(SEVEN_SEG_t* Copy_pSEVEN_SEG_t_Obj, u8 Copy_u8Digit
 	}	
 }
 
-// void SEVEN_SEG_voidClrDisplay(SEVEN_SEG_t* Copy_pSEVEN_SEG_t_Obj)
-// {
-// 	switch (Copy_pSEVEN_SEG_t_Obj->SEVEN_SEG_u8CONNECTION)
-// 	{
-// 	case COMMON_ANODE:
-// 		MGPIO_ErrSetPortSpecificValue(Copy_pSEVEN_SEG_t_Obj->SEVEN_SEG_u8PORT, ALL_OFF_COM_ANODE);
-// 		break;
-// 	case COMMON_CATHODE:
-// 		MDIO_voidClrPortValue(Copy_pSEVEN_SEG_t_Obj->SEVEN_SEG_u8PORT);
-// 		break;
-// 	default:
-// 		/* Do Nothing */
-// 		break;
-// 	}
-// }
 
 void SEVEN_SEG_voidSendCustomCharacter(SEVEN_SEG_t* Copy_pSEVEN_SEG_t_Obj, u8 Copy_u8CustomCharacter)
 {

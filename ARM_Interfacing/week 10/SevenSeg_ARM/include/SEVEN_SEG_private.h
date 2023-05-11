@@ -44,4 +44,6 @@
 #define NUM_8_COM_CATHODE   0x7F
 #define NUM_9_COM_CATHODE   0x6F
 
+
+
 #endif /* SEVEN_SEG_PRIVATE_H */
