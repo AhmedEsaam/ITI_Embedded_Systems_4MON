@@ -25,7 +25,7 @@
 #include "GPIO_config.h"
 
 
-GPIO_Error_t MGPIO_ErrOutputPinConfig(GPIO_Pin_t * Copy_pGPIO_PinObj)
+GPIO_Error_t MGPIO_ErrPinConfig(GPIO_Pin_t * Copy_pGPIO_PinObj)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;

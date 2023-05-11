@@ -147,7 +147,7 @@ typedef enum GPIO_Error_t
 }GPIO_Error_t;
 
 // Linking-Time Configuration
-GPIO_Error_t MGPIO_ErrPinConfig(GPIO_OutputPin_t * Copy_pGPIO_PinObj);
+GPIO_Error_t MGPIO_ErrPinConfig(GPIO_Pin_t * Copy_pGPIO_PinObj);
 
 // Post-Build Configuration
 GPIO_Error_t MGPIO_ErrSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMode);
