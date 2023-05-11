@@ -42,7 +42,7 @@ GPIO_Error_t MGPIO_ErrPinConfig(GPIO_Pin_t * Copy_pGPIO_PinObj)
         )
     {
         /* Change Error State */
-        Local_u8GPIOErrorState = GPIO_OutputPinInvalidConfiguration;
+        Local_u8GPIOErrorState = GPIO_PinInvalidConfiguration;
     }
     else
     {
@@ -267,6 +267,99 @@ GPIO_Error_t MGPIO_ErrSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMod
 }
 
 
+GPIO_Error_t MGPIO_ErrSetPortMode(u8 Copy_u8Port, u8 Copy_u8PortMode)
+{
+    /* Variable to Store Port Mode Register Value */
+    u32 Local_u32PortModeValue;
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check Port Mode */
+    switch (Copy_u8PortMode)
+    {
+    case GPIO_INPUT:
+        Local_u32PortModeValue = GPIO_PORT_INPUT;
+        break;
+
+    case GPIO_OUTPUT:
+        Local_u32PortModeValue = GPIO_PORT_OUTPUT;
+        break;
+
+    case GPIO_ALTERNATE_FUNCTION:
+        Local_u32PortModeValue = GPIO_PORT_ALTERNATE_FUNCTION;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortModeInvalidConfiguration;
+        break;
+    }
+
+    /* Check for The Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Mode */
+        (GPIOA->MODER) = Local_u32PortModeValue;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Mode */
+        (GPIOB->MODER) = Local_u32PortModeValue;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Mode */
+        (GPIOC->MODER) = Local_u32PortModeValue;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
+GPIO_Error_t MGPIO_ErrSetPortSpecificMode(u8 Copy_u8Port, u32 Copy_u32PortMode)
+{
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check for The Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Mode */
+        (GPIOA->MODER) = Copy_u32PortMode;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Mode */
+        (GPIOB->MODER) = Copy_u32PortMode;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Mode */
+        (GPIOC->MODER) = Copy_u32PortMode;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
 GPIO_Error_t MGPIO_ErrSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputType)
 {
     /* Set Error Handling Initial State */
@@ -350,6 +443,95 @@ GPIO_Error_t MGPIO_ErrSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8
 }
 
 
+GPIO_Error_t MGPIO_ErrSetPortOutputType(u8 Copy_u8Port, u8 Copy_u8PortOutputType)
+{
+    /* Variable to Store Port Output Type Register Value */
+    u32 Local_u32PortOutputTypeValue;
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check Port Output Type */
+    switch (Copy_u8PortOutputType)
+    {
+    case GPIO_OUTPUT_PUSH_PULL:
+        Local_u32PortOutputTypeValue = GPIO_PORT_OUTPUT_PUSH_PULL;
+        break;
+
+    case GPIO_OUTPUT_OPEN_DRAIN:
+        Local_u32PortOutputTypeValue = GPIO_OUTPUT_OPEN_DRAIN;
+        break;
+
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortOutputTypeInvalidConfiguration;
+        break;
+    }
+
+    /* Check for The Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Output Type */
+        (GPIOA->OTYPER) = Local_u8GPIOErrorState;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Output Type */
+        (GPIOB->OTYPER) = Local_u8GPIOErrorState;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Output Type */
+        (GPIOC->OTYPER) = Local_u8GPIOErrorState;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
+GPIO_Error_t MGPIO_ErrSetPortSpecificOutputType(u8 Copy_u8Port, u32 Copy_u32PortOutputType)
+{
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check for The Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Output Type */
+        (GPIOA->OTYPER) = Copy_u32PortOutputType;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Output Type */
+        (GPIOB->OTYPER) = Copy_u32PortOutputType;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Output Type */
+        (GPIOC->OTYPER) = Copy_u32PortOutputType;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
 GPIO_Error_t MGPIO_ErrSetPinOutputSpeed(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputSpeed)
 {
     /* Set Error Handling Initial State */
@@ -375,6 +557,103 @@ GPIO_Error_t MGPIO_ErrSetPinOutputSpeed(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u
         /* Set Pin Specific Output Speed by Changing Output Speed Bits */
         (GPIOC->OSPEEDR) &= ~((OSPEEDR_BIT_MASK)<<(Copy_u8Pin * 2));
         (GPIOC->OSPEEDR) |=  ((Copy_u8PinOutputSpeed)<<(Copy_u8Pin * 2));
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
+GPIO_Error_t MGPIO_ErrSetPortOutputSpeed(u8 Copy_u8Port, u8 Copy_u8PortOutputSpeed)
+{
+    /* Variable to Store Port Output Speed Register Value */
+    u32 Local_u32PortOutputSpeedValue;
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check Port Output Speed */
+    switch (Copy_u8PortOutputSpeed)
+    {
+    case GPIO_LOW_SPEED:
+        Local_u32PortOutputSpeedValue = GPIO_PORT_LOW_SPEED;
+        break;
+
+    case GPIO_MEDIUM_SPEED:
+        Local_u32PortOutputSpeedValue = GPIO_PORT_MEDIUM_SPEED;
+        break;
+
+    case GPIO_HIGH_SPEED:
+        Local_u32PortOutputSpeedValue = GPIO_PORT_HIGH_SPEED;
+        break;
+
+    case GPIO_VERY_HIGH_SPEED:
+        Local_u32PortOutputSpeedValue = GPIO_PORT_VERY_HIGH_SPEED;
+        break;
+
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortOutputSpeedInvalidConfiguration;
+        break;
+    }
+
+    /* Check for The Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Output Type */
+        (GPIOA->OSPEEDR) = Local_u32PortOutputSpeedValue;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Output Type */
+        (GPIOB->OSPEEDR) = Local_u32PortOutputSpeedValue;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Output Type */
+        (GPIOC->OSPEEDR) = Local_u32PortOutputSpeedValue;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
+GPIO_Error_t MGPIO_ErrSetPortSpecificOutputSpeed(u8 Copy_u8Port, u32 Copy_u32PortOutputSpeed)
+{
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check for The Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Output Type */
+        (GPIOA->OSPEEDR) = Copy_u32PortOutputSpeed;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Output Type */
+        (GPIOB->OSPEEDR) = Copy_u32PortOutputSpeed;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Output Type */
+        (GPIOC->OSPEEDR) = Copy_u32PortOutputSpeed;
         break;
     
     default:
@@ -426,7 +705,100 @@ GPIO_Error_t MGPIO_ErrSetPinPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Cop
 }
 
 
-GPIO_Error_t MGPIO_ErrSetPinAlternativeFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinAlternativeFunction)
+GPIO_Error_t MGPIO_ErrSetPortPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8PortPullUpPullDown)
+{
+    /* Variable to Store Port Input PullUp/PullDown Register Value */
+    u32 Local_u32PortInputPullUpPullDownValue;
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check Port Input PullUp/PullDown */
+    switch (Copy_u8PortPullUpPullDown)
+    {
+    case GPIO_NO_PULL_UP_PULL_DOWN:
+        Local_u32PortInputPullUpPullDownValue = GPIO_PORT_NO_PULL_UP_PULL_DOWN;
+        break;
+
+    case GPIO_PULL_UP:
+        Local_u32PortInputPullUpPullDownValue = GPIO_PORT_PULL_UP;
+        break;
+
+    case GPIO_PULL_DOWN:
+        Local_u32PortInputPullUpPullDownValue = GPIO_PORT_PULL_DOWN;
+        break;
+
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortInputPullUpPullDownInvalidConfiguration;
+        break;
+    }
+
+    /* Check for Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Input PullUp/PullDown Configuration */
+        (GPIOA->PUPDR) = Local_u32PortInputPullUpPullDownValue;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Input PullUp/PullDown Configuration */
+        (GPIOB->PUPDR) = Local_u32PortInputPullUpPullDownValue;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Input PullUp/PullDown Configuration */
+        (GPIOC->PUPDR) = Local_u32PortInputPullUpPullDownValue;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
+GPIO_Error_t MGPIO_ErrSetPortSpecificPullUpPullDown(u8 Copy_u8Port, u32 Copy_u32PortPullUpPullDown)
+{
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check for The Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Input PullUp/PullDown Configuration */
+        (GPIOA->PUPDR) = Copy_u32PortPullUpPullDown;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Input PullUp/PullDown Configuration */
+        (GPIOB->PUPDR) = Copy_u32PortPullUpPullDown;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Input PullUp/PullDown Configuration */
+        (GPIOC->PUPDR) = Copy_u32PortPullUpPullDown;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
+GPIO_Error_t MGPIO_ErrSetPinAlternateFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinAlternativeFunction)
 {
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -590,10 +962,98 @@ GPIO_Error_t MGPIO_ErrSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinVa
 }
 
 
+GPIO_Error_t MGPIO_ErrSetPortValue(u8 Copy_u8Port, u8 Copy_u8PortValue)
+{
+     /* Variable to Store Port Output Value Register Value */
+    u32 Local_u32PortOutputValue;
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check Port Input PullUp/PullDown */
+    switch (Copy_u8PortValue)
+    {
+    case LOW:
+        Local_u32PortOutputValue = PORT_ODR_LOW;
+        break;
+
+    case HIGH:
+        Local_u32PortOutputValue = PORT_ODR_HIGH;
+        break;
+
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortValueInvalidConfiguration;
+        break;
+    }
+
+    /* Check for Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Output Value */
+        (GPIOA->ODR) = Local_u32PortOutputValue;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Output Value */
+        (GPIOB->ODR) = Local_u32PortOutputValue;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Output Value */
+        (GPIOC->ODR) = Local_u32PortOutputValue;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+GPIO_Error_t MGPIO_ErrSetPortSpecificValue(u8 Copy_u8Port, u32 Copy_u32PortValue)
+{
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+
+    /* Check for Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Set Port Output Value */
+        (GPIOA->ODR) = Copy_u32PortValue;
+        break;
+
+    case GPIO_PORTB:
+        /* Set Port Output Value */
+        (GPIOB->ODR) = Copy_u32PortValue;
+        break;
+
+    case GPIO_PORTC:
+        /* Set Port Output Value */
+        (GPIOC->ODR) = Copy_u32PortValue;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
+
 GPIO_Error_t MGPIO_ErrGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8PinValue)
 {
-    /* Create Varibale To Store Pin Value */
-    u8 Local_u8PinValue;    
+    /* Create Varibale To Store Pin Input Value */
+    u8 Local_u8PinInputValue;    
 
     /* Set Error Handling Initial State */
     GPIO_Error_t Local_u8GPIOErrorState;
@@ -604,17 +1064,17 @@ GPIO_Error_t MGPIO_ErrGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8Pi
     {
     case GPIO_PORTA:
         /* Read Pin Value */
-        Local_u8PinValue = GET_BIT(GPIOA->ODR, Copy_u8Pin);
+        Local_u8PinInputValue = GET_BIT(GPIOA->IDR, Copy_u8Pin);
         break;
 
     case GPIO_PORTB:
         /* Read Pin Value */
-        Local_u8PinValue = GET_BIT(GPIOB->ODR, Copy_u8Pin);
+        Local_u8PinInputValue = GET_BIT(GPIOB->IDR, Copy_u8Pin);
         break;
 
     case GPIO_PORTC:
         /* Read Pin Value */
-        Local_u8PinValue = GET_BIT(GPIOC->ODR, Copy_u8Pin);
+        Local_u8PinInputValue = GET_BIT(GPIOC->IDR, Copy_u8Pin);
         break;
     
     default:
@@ -624,11 +1084,52 @@ GPIO_Error_t MGPIO_ErrGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8Pi
     }
 
     /* Update PinValue Pointer Dereferenced Value */
-    *Copy_pu8PinValue = Local_u8PinValue;
+    *Copy_pu8PinValue = Local_u8PinInputValue;
 
     /* return Error State */
     return Local_u8GPIOErrorState;
 }
+
+GPIO_Error_t MGPIO_ErrGetPortValue(u8 Copy_u8Port, u32 * Copy_pu32PortValue)
+{
+    /* Create Varibale To Store Port Input Value */
+    u8 Local_u8PortInputValue;    
+
+    /* Set Error Handling Initial State */
+    GPIO_Error_t Local_u8GPIOErrorState;
+    Local_u8GPIOErrorState = GPIO_OK;
+    
+    /* Check for Port Name */
+    switch (Copy_u8Port)
+    {
+    case GPIO_PORTA:
+        /* Read Port Value */
+        Local_u8PortInputValue = GPIOA->IDR;
+        break;
+
+    case GPIO_PORTB:
+        /* Read Port Value */
+        Local_u8PortInputValue = GPIOB->IDR;
+        break;
+
+    case GPIO_PORTC:
+        /* Read Port Value */
+        Local_u8PortInputValue = GPIOC->IDR;
+        break;
+    
+    default:
+        /* Change Error State */
+        Local_u8GPIOErrorState = GPIO_PortNameInvalidConfiguration;
+        break;
+    }
+
+    /* Update PinValue Pointer Dereferenced Value */
+    *Copy_pu32PortValue = Local_u8PortInputValue;
+
+    /* return Error State */
+    return Local_u8GPIOErrorState;
+}
+
 
 
 GPIO_Error_t MGPIO_ErrLockPin(u8 Copy_u8Port, u8 Copy_u8Pin)
@@ -742,4 +1243,3 @@ GPIO_Error_t MGPIO_ErrLockPin(u8 Copy_u8Port, u8 Copy_u8Pin)
     /* return Error State */
     return Local_u8GPIOErrorState;
 }
-

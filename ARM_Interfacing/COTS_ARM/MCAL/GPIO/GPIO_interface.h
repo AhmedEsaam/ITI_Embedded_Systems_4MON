@@ -56,12 +56,12 @@
 #define     GPIO_LOW_SPEED                      0b00             
 #define     GPIO_MEDIUM_SPEED                   1             
 #define     GPIO_HIGH_SPEED                     2             
-#define     GPIO_VERY_HIGH_SPEED                3             
+#define     GPIO_VERY_HIGH_SPEED                3      
 
 // GPIO Pin Pullup/Pulldown
 #define     GPIO_NO_PULL_UP_PULL_DOWN           0b00             
 #define     GPIO_PULL_UP                        1             
-#define     GPIO_PULL_DOWN                      2    
+#define     GPIO_PULL_DOWN                      2     
 
 // GPIO Pin Function Selection
 #define     GPIO_AF0                            0b0000              
@@ -80,42 +80,6 @@
 #define     GPIO_AF13                           13             
 #define     GPIO_AF14                           14             
 #define     GPIO_AF15                           15    
-
-// GPIO Pin Set/Reset
-// Set Pin (ex: BSRR = SET_PIN3)
-#define     SET_PIN0                            0x1 
-#define     SET_PIN1                            0x2
-#define     SET_PIN2                            0x4
-#define     SET_PIN3                            0x8
-#define     SET_PIN4                            0x10
-#define     SET_PIN5                            0x20
-#define     SET_PIN6                            0x40
-#define     SET_PIN7                            0x80
-#define     SET_PIN8                            0x100
-#define     SET_PIN9                            0x200
-#define     SET_PIN10                           0x400
-#define     SET_PIN11                           0x800
-#define     SET_PIN12                           0x1000
-#define     SET_PIN13                           0x2000
-#define     SET_PIN14                           0x4000
-#define     SET_PIN15                           0x8000
-// Reset Pin
-#define     RESET_PIN0                          0x10000 
-#define     RESET_PIN1                          0x20000
-#define     RESET_PIN2                          0x40000
-#define     RESET_PIN3                          0x80000
-#define     RESET_PIN4                          0x100000
-#define     RESET_PIN5                          0x200000
-#define     RESET_PIN6                          0x400000
-#define     RESET_PIN7                          0x800000
-#define     RESET_PIN8                          0x1000000
-#define     RESET_PIN9                          0x2000000
-#define     RESET_PIN10                         0x4000000
-#define     RESET_PIN11                         0x8000000
-#define     RESET_PIN12                         0x10000000
-#define     RESET_PIN13                         0x20000000
-#define     RESET_PIN14                         0x40000000
-#define     RESET_PIN15                         0x80000000
 
 // GPIO Pin Values
 #define     LOW                                 0
@@ -137,31 +101,53 @@ typedef struct GPIO_Pin_t
 typedef enum GPIO_Error_t
 {
     GPIO_OK,
-    GPIO_OutputPinInvalidConfiguration,
-    GPIO_InputPinInvalidConfiguration,
+    GPIO_PinInvalidConfiguration,
     GPIO_PortNameInvalidConfiguration,
     GPIO_PinNumberInvalidConfiguration,
     GPIO_PinOutputTypeInvalidConfiguration,
     GPIO_PinValueInvalidConfiguration,
     GPIO_LockKeyBitInvalidConfiguration,
+    GPIO_PortModeInvalidConfiguration,
+    GPIO_PortOutputTypeInvalidConfiguration,
+    GPIO_PortOutputSpeedInvalidConfiguration,
+    GPIO_PortInputPullUpPullDownInvalidConfiguration,
+    GPIO_PortValueInvalidConfiguration,
 }GPIO_Error_t;
 
 // Linking-Time Configuration
 GPIO_Error_t MGPIO_ErrPinConfig(GPIO_Pin_t * Copy_pGPIO_PinObj);
 
-// Post-Build Configuration
+/* Post-Build Configuration */
+// Set Mode
 GPIO_Error_t MGPIO_ErrSetPinMode(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinMode);
+GPIO_Error_t MGPIO_ErrSetPortMode(u8 Copy_u8Port, u8 Copy_u8PortMode);
+GPIO_Error_t MGPIO_ErrSetPortSpecificMode(u8 Copy_u8Port, u32 Copy_u32PortMode);
+// Output Type
 GPIO_Error_t MGPIO_ErrSetPinOutputType(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputType);
+GPIO_Error_t MGPIO_ErrSetPortOutputType(u8 Copy_u8Port, u8 Copy_u8PortOutputType);
+GPIO_Error_t MGPIO_ErrSetPortSpecificOutputType(u8 Copy_u8Port, u32 Copy_u32PortOutputType);
+// Output Speed
 GPIO_Error_t MGPIO_ErrSetPinOutputSpeed(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinOutputSpeed);
+GPIO_Error_t MGPIO_ErrSetPortOutputSpeed(u8 Copy_u8Port, u8 Copy_u8PortOutputSpeed);
+GPIO_Error_t MGPIO_ErrSetPortSpecificOutputSpeed(u8 Copy_u8Port, u32 Copy_u32PortOutputSpeed);
+// Pull Up / Pull Down
 GPIO_Error_t MGPIO_ErrSetPinPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinPullUpPullDown);
-GPIO_Error_t MGPIO_ErrSetPinAlternativeFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinAlternativeFunction);
-
+GPIO_Error_t MGPIO_ErrSetPortPullUpPullDown(u8 Copy_u8Port, u8 Copy_u8PortPullUpPullDown);
+GPIO_Error_t MGPIO_ErrSetPortSpecificPullUpPullDown(u8 Copy_u8Port, u32 Copy_u32PortPullUpPullDown);
+// Alternate Function
+GPIO_Error_t MGPIO_ErrSetPinAlternateFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinAlternativeFunction);
+GPIO_Error_t MGPIO_ErrSetPortSpecificAlternateFunctionHigh(u8 Copy_u8Port, u32 Copy_u32PortAlternateFunctionHigh);
+GPIO_Error_t MGPIO_ErrSetPortSpecificAlternateFunctionLow(u8 Copy_u8Port, u32 Copy_u32PortAlternateFunctionLow);
+// Set Value
 GPIO_Error_t MGPIO_ErrSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8PinValue);
+GPIO_Error_t MGPIO_ErrSetPortValue(u8 Copy_u8Port, u8 Copy_u8PortValue);
+GPIO_Error_t MGPIO_ErrSetPortSpecificValue(u8 Copy_u8Port, u32 Copy_u32PortValue);
+// Get Value
 GPIO_Error_t MGPIO_ErrGetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 * Copy_pu8PinValue);
+GPIO_Error_t MGPIO_ErrGetPortValue(u8 Copy_u8Port, u32 * Copy_pu32PortValue);
+// Lock
 GPIO_Error_t MGPIO_ErrLockPin(u8 Copy_u8Port, u8 Copy_u8Pin);
-
-// Port Functions
-GPIO_Error_t MGPIO_ErrSetPortMode(u8 Copy_u8Port, u8 Copy_u8PinMode);
+GPIO_Error_t MGPIO_ErrLockPort(u8 Copy_u8Port);
 
 
 #endif /* GPIO_INTERFACE_H */
