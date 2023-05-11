@@ -192,12 +192,12 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 ---
 <!-- =================================================================== ARM Interfacing ======================================================================= -->
 ### ARM Interfacing &emsp;&emsp;&ensp;
-<img src="https://progress-bar.dev/12/?title=In Progress&color=CD5888">  <!-- /24 -->
+<img src="https://progress-bar.dev/17/?title=In Progress&color=CD5888">  <!-- /24 -->
 
 </details>
 
 <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/COTS_ARM">
-  ARM COTS &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; <img src="https://progress-bar.dev/12/?title=In Progress&color=CD5888">
+  ARM COTS &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; <img src="https://progress-bar.dev/17/?title=In Progress&color=CD5888">
 </a>
 
 <span></span>
@@ -218,4 +218,19 @@ This repository acts as a tracker for my progress throughout the diploma by incl
 - [x] [MCAL RCC Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/COTS_ARM/MCAL/RCC)
 - [x] [MCAL GPIO Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/COTS_ARM/MCAL/GPIO)
 - [x] [MCAL SysTick Driver](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/COTS_ARM/MCAL/SYSTICK)
+</details>
+
+<details>
+  <summary>
+    <a href="https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/Week%209">
+      Week 10: Seven Segment and LED Matrix &emsp;&emsp;&ensp;&nbsp;&nbsp; <img src="https://progress-bar.dev/100/?title=Done">
+    </a>
+    
+  </summary>
+  
+  <span></span>
+  
+- [x] [SysTick Hello](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/week%2010/SYSTICK_Hello)
+- [x] [Seven Segment](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/week%2010/SevenSeg_ARM)
+- [x] [LED Matrix](https://github.com/AhmedEsaam/ITI_Embedded_Systems_4MON/tree/main/ARM_Interfacing/week%2010/Dot_Matrix)
 </details>
