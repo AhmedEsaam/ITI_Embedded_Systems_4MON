@@ -4,6 +4,7 @@
 #include "RCC_interface.h"
 #include "GPIO_interface.h"
 #include "SYSTICK_interface.h"
+#include "LEDMATRIX_interface.h"
 
 #define COLUMNS_PORT 		GPIO_PORTA
 #define ROWS_PORT 			GPIO_PORTB
@@ -16,6 +17,7 @@ int main()
 	MRCC_voidEnablePeripheralClock(RCC_AHB1, RCC_AHB1_GPIOA);
 	MRCC_voidEnablePeripheralClock(RCC_AHB1, RCC_AHB1_GPIOB);
 
+	#if 0
 	// Columns (Port A)
 	MGPIO_ErrSetPortMode(COLUMNS_PORT, GPIO_OUTPUT);
 	MGPIO_ErrSetPortOutputSpeed(COLUMNS_PORT, GPIO_LOW_SPEED);
@@ -67,5 +69,15 @@ int main()
 		}
 	}
 
+	#elif 1
+
+		u8 Local_u8Data[8] = {0, 252,  18,  18,  18, 252, 0, 0};
+
+		HLEDMATRIX_voidInit();
+		HLEDMATRIX_voidDisplay(&Local_u8Data);		
+
+	#endif
+
 	return 0;
 }
+

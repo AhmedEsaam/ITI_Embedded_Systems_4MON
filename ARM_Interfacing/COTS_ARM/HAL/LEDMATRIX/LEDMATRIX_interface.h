@@ -1,30 +1,33 @@
 /*
  * ----------------------------------------------------------------------------------
- * Filename     :	GPIO_config.h
+ * Filename     :	LEDMATRIX_interface.h
  *
  * Author       :	Ahmed Essam El-Mogy
- * Created on   :	MAY 5, 2023
+ * Created on   :	MAY 14, 2023
  * Version      :	v1.0
  * C Standard   :	C99
  * Compiler     :	GNU ARM GCC
  * Controller   :   STM32F401CCU6 (32-bit Architecture)
- * Layer        :   MCAL
+ * Layer        :   HAL
  * ----------------------------------------------------------------------------------
  *
  * ----------------------------------------------------------------------------------
  * Version		Date 		        Author			        Description
- * v1.0		    MAY 5, 2023 		Ahmed Essam El-Mogy		Initial Creation
+ * v1.0		    MAY 14, 2023 		Ahmed Essam El-Mogy		Initial Creation
  * ----------------------------------------------------------------------------------
  */
-#ifndef GPIO_CONFIG_H
-#define GPIO_CONFIG_H
 
-// #define OUTPUT          01
+#ifndef LEDMATRIX_INTERFACE_H
+#define LEDMATRIX_INTERFACE_H
 
-// #define PORTA_PIN0      OUTPUT
-// #define PORTA_PIN1      OUTPUT
+// typedef struct 
+// {
+// 	u8 LEDMATRIX_u8PORT;
+// 	u8 LEDMATRIX_u8CONNECTION;
+// }LEDMATRIX_t;
 
-// #define CONC            0b##PORTA_PIN0##PORTA_PIN1
+void  HLEDMATRIX_voidInit(void);
+void HLEDMATRIX_voidDisplay(u8 * Copy_pu8Data);
 
+#endif /* LEDMATRIX_INTERFACE_H */
 
-#endif /* GPIO_CONFIG_H */
