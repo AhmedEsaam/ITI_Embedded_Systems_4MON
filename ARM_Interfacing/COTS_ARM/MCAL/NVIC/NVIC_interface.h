@@ -28,7 +28,7 @@ void MNVIC_voidEnablePeripheralInterrupt(u8 Copy_u8PeripheralID);
 void MNVIC_voidDisablePeripheralInterrupt(u8 Copy_u8PeripheralID);
 void MNVIC_voidSetPendingFlag(u8 Copy_u8PeripheralID);
 void MNVIC_voidClearPendingFlag(u8 Copy_u8PeripheralID);
-void MNVIC_voidGetActiveFlag(u8 Copy_u8PeripheralID);
+void MNVIC_voidGetActiveFlag(u8 Copy_u8PeripheralID, u8 *Copy_u8ActiveFlag);
 void MNVIC_voidSetPeripheralPriority(u8 Copy_u8PeripheralID, u8 Copy_u8Priority);
 
 
