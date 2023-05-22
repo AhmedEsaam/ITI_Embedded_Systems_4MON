@@ -59,9 +59,11 @@ void MNVIC_voidClearPendingFlag(u8 Copy_u8PeripheralID)
     MNVIC->ICPR[Local_u8ISERIndex] = (1 << (Copy_u8PeripheralID % 32));  
 }
 
-void MNVIC_voidGetActiveFlag(u8 Copy_u8PeripheralID)
+void MNVIC_voidGetActiveFlag(u8 Copy_u8PeripheralID, u8 *Copy_u8ActiveFlag)
 {
-    
+    u8 Local_u8ISERIndex;
+    Local_u8ISERIndex = Copy_u8PeripheralID / 32;
+    *Copy_u8ActiveFlag = GET_BIT(MNVIC->IAPR[Local_u8ISERIndex], (Copy_u8PeripheralID % 32));
 }
 
 void MNVIC_voidSetPeripheralPriority(u8 Copy_u8PeripheralID, u8 Copy_u8Priority)
