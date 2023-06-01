@@ -35,5 +35,8 @@
   ],
   "C_Cpp_Runner.useAddressSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
-  "editor.suggest.showDeprecated": false
+  "editor.suggest.showDeprecated": false,
+  "files.associations": {
+    "std_types.h": "c"
+  }
 }

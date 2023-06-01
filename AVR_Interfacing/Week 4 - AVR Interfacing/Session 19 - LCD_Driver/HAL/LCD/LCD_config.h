@@ -24,7 +24,7 @@
     DIO_PORT_C
     DIO_PORT_D
     */
-#define LCD_DATA_PORT       DIO_PORT_B
+#define LCD_DATA_PORT       DIO_PORT_A
 
 /* Options:
     DIO_PORT_A
@@ -32,7 +32,7 @@
     DIO_PORT_C
     DIO_PORT_D
     */
-#define LCD_CTRL_PORT       DIO_PORT_A
+#define LCD_CTRL_PORT       DIO_PORT_B
 
 /* Options:
     PIN0

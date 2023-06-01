@@ -7,8 +7,8 @@
 
 int main()
 {
-	MRCC_voidInit();
 	MSYSTICK_ErrInit();
+	MRCC_voidInit();
 	MRCC_voidEnablePeripheralClock(RCC_AHB1, RCC_AHB1_GPIOA);
 
 	MGPIO_ErrSetPinMode(GPIO_PORTA, GPIO_PIN0, GPIO_OUTPUT);
