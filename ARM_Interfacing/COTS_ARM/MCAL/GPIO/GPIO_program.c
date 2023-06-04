@@ -809,18 +809,18 @@ GPIO_Error_t MGPIO_ErrSetPinAlternateFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 
     {
     case GPIO_PORTA:
         /* If Pin Number is from 0 to 7, Use AFRL Register */
-        if (Copy_u8Pin <= 7)
+        if (Copy_u8Pin < 8)
         {
             /* Set Pin Alternate Function Configuration */
             (GPIOA->AFRL) &= ~((AFR_BIT_MASK)<<(Copy_u8Pin * 4));
             (GPIOA->AFRL) |=  ((Copy_u8PinAlternativeFunction)<<(Copy_u8Pin * 4));
         }
         /* If Pin Number is from 8 to 15, Use AFRH Register */
-        else if (Copy_u8Pin > 7)
+        else if (Copy_u8Pin >= 8)
         {
             /* Set Pin Alternate Function Configuration */
-            (GPIOA->AFRH) &= ~((AFR_BIT_MASK)<<(Copy_u8Pin * 4));
-            (GPIOA->AFRH) |=  ((Copy_u8PinAlternativeFunction)<<(Copy_u8Pin * 4));
+            (GPIOA->AFRH) &= ~((AFR_BIT_MASK)<<((Copy_u8Pin - 8) * 4));
+            (GPIOA->AFRH) |=  ((Copy_u8PinAlternativeFunction)<<((Copy_u8Pin - 8) * 4));
         }
         else
         {
@@ -831,18 +831,18 @@ GPIO_Error_t MGPIO_ErrSetPinAlternateFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 
 
     case GPIO_PORTB:
         /* If Pin Number is from 0 to 7, Use AFRL Register */
-        if (Copy_u8Pin <= 7)
+        if (Copy_u8Pin < 8)
         {
             /* Set Pin Alternate Function Configuration */
             (GPIOB->AFRL) &= ~((AFR_BIT_MASK)<<(Copy_u8Pin * 4));
             (GPIOB->AFRL) |=  ((Copy_u8PinAlternativeFunction)<<(Copy_u8Pin * 4));
         }
         /* If Pin Number is from 8 to 15, Use AFRH Register */
-        else if (Copy_u8Pin > 7)
+        else if (Copy_u8Pin >= 8)
         {
             /* Set Pin Alternate Function Configuration */
-            (GPIOB->AFRH) &= ~((AFR_BIT_MASK)<<(Copy_u8Pin * 4));
-            (GPIOB->AFRH) |=  ((Copy_u8PinAlternativeFunction)<<(Copy_u8Pin * 4));
+            (GPIOB->AFRH) &= ~((AFR_BIT_MASK)<<((Copy_u8Pin - 8) * 4));
+            (GPIOB->AFRH) |=  ((Copy_u8PinAlternativeFunction)<<((Copy_u8Pin - 8) * 4));
         }
         else
         {
@@ -853,18 +853,18 @@ GPIO_Error_t MGPIO_ErrSetPinAlternateFunction(u8 Copy_u8Port, u8 Copy_u8Pin, u8 
 
     case GPIO_PORTC:
         /* If Pin Number is from 0 to 7, Use AFRL Register */
-        if (Copy_u8Pin <= 7)
+        if (Copy_u8Pin < 8)
         {
             /* Set Pin Alternate Function Configuration */
             (GPIOC->AFRL) &= ~((AFR_BIT_MASK)<<(Copy_u8Pin * 4));
             (GPIOC->AFRL) |=  ((Copy_u8PinAlternativeFunction)<<(Copy_u8Pin * 4));
         }
         /* If Pin Number is from 8 to 15, Use AFRH Register */
-        else if (Copy_u8Pin > 7)
+        else if (Copy_u8Pin >= 8)
         {
             /* Set Pin Alternate Function Configuration */
-            (GPIOC->AFRH) &= ~((AFR_BIT_MASK)<<(Copy_u8Pin * 4));
-            (GPIOC->AFRH) |=  ((Copy_u8PinAlternativeFunction)<<(Copy_u8Pin * 4));
+            (GPIOC->AFRH) &= ~((AFR_BIT_MASK)<<((Copy_u8Pin - 8) * 4));
+            (GPIOC->AFRH) |=  ((Copy_u8PinAlternativeFunction)<<((Copy_u8Pin - 8) * 4));
         }
         else
         {

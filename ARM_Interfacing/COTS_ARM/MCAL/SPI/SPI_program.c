@@ -38,3 +38,4 @@ u8 MSPI1_u8Tranceive(u8 Copy_u8Data)
     /* Return The Received Data */
     return (SPI1 -> DR);
 }
+
