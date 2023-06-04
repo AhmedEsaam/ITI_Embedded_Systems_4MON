@@ -37,6 +37,7 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "editor.suggest.showDeprecated": false,
   "files.associations": {
-    "std_types.h": "c"
+    "std_types.h": "c",
+    "spi_interface.h": "c"
   }
 }
