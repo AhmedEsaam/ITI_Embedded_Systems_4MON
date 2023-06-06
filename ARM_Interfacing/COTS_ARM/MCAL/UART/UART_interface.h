@@ -30,4 +30,11 @@
 #define         MUART_2_STOP_BIT                 0b10
 
 
+void MUART_voidInit(void);
+void MUART_voidTransmitDataSynchronous(u8 Copy_u8Data);
+void MUART_voidReceiveDataSynchronous(u8 * Copy_pu8ReceivedData);
+void MUART_voidSendString(u8 * Copy_pu8StringArray);
+void MUART_voidSendNumber(u32 Copy_u32Number);
+
+
 #endif /* UART_INTERFACE_H_ */
