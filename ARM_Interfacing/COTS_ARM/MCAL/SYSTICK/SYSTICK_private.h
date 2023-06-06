@@ -17,8 +17,8 @@
  * ----------------------------------------------------------------------------------
  */
 
+#ifndef SYSTICK_PRIVATE_H_
 #define SYSTICK_PRIVATE_H_
-#ifdef SYSTICK_PRIVATE_H_
 
 typedef struct
 {

@@ -17,8 +17,8 @@
  * ----------------------------------------------------------------------------------
  */
 
+#ifndef SYSTICK_INTERFACE_H_
 #define SYSTICK_INTERFACE_H_
-#ifdef SYSTICK_INTERFACE_H_
 
 // SysTick Clock Selection .............................
 #define         SYSTICK_CLK_AHB_DIVIDED_BY_8        0 

@@ -1,9 +1,9 @@
 /*
  * ----------------------------------------------------------------------------------
- * Filename		:	SYSTICK_config.h
+ * Filename		:	UART_config.h
  *
  * Author		:	Ahmed Essam El-Mogy
- * Created on	:	MAY 8, 2023
+ * Created on	:	JUN 6, 2023
  * Version		:	v1.0
  * C Standard	:	C99
  * Compiler		:	GNU ARM GCC
@@ -13,26 +13,23 @@
  *
  * ----------------------------------------------------------------------------------
  * Version 		Date 				Author 						Describtion
- * v1.0 		MAY 8, 2023 		Ahmed Essam El-Mogy 		Initial Creation
+ * v1.0 		JUN 6, 2023 		Ahmed Essam El-Mogy 		Initial Creation
  * ----------------------------------------------------------------------------------
  */
 
-#ifndef SYSTICK_CONFIG_H_
-#define SYSTICK_CONFIG_H_
+#ifndef UART_CONFIG_H_
+#define UART_CONFIG_H_
+
+#define F_CPU                   16000000UL
+#define BAUDRATE                115200
 
 
-/* options:
-    SYSTICK_CLK_AHB_DIVIDED_BY_8
-    SYSTICK_CLK_AHB
-*/
-#define     SYSTICK_CLK_SOURCE              SYSTICK_CLK_AHB_DIVIDED_BY_8
-
-#define     SYSTICK_INTERRUPT_EN            SYSTICK_INTERRUPT_ENABLE
-
-#define     SYSTICK_EN                      SYSTICK_ENABLE
+#define MUART_TX_PORT_PIN		GPIO_PORTA, GPIO_PIN9
+#define MUART_RX_PORT_PIN		GPIO_PORTA, GPIO_PIN10
 
 
+#define MODE                    MUART_ASYNCHRONOUS
+#define STOP_BITS               MUART_1_STOP_BIT
 
 
-
-#endif /* SYSTICK_CONFIG_H_*/
+#endif /* UART_CONFIG_H_*/

@@ -38,6 +38,8 @@
   "editor.suggest.showDeprecated": false,
   "files.associations": {
     "std_types.h": "c",
-    "spi_interface.h": "c"
+    "spi_interface.h": "c",
+    "uart_private.h": "c",
+    "bit_math.h": "c"
   }
 }
