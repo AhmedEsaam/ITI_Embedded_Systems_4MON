@@ -56,7 +56,7 @@ void MUART_voidInit(void)
     /* Stop Bit = 1-bit */
     (UART->CR2) &= ~(STOP_MASK);
     (UART->CR2) |= (STOP_BITS<<STOP_LOCATION);
-    
+
     /* Set The Baud Rate To Be 115200bps */
     /* Mantissa */
     (UART->BRR) &= ~(DIV_Mantissa_MASK);
@@ -65,11 +65,8 @@ void MUART_voidInit(void)
     (UART->BRR) &= ~(DIV_Fraction_MASK);
     (UART->BRR) |= 11;
 
-
     /* Enable the UART */
     SET_BIT(UART->CR1, UE);
-
-
 }
 
 void MUART_voidTransmitDataSynchronous(u8 Copy_u8Data)

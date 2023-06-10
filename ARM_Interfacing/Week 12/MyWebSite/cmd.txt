@@ -1,0 +1,11 @@
+AT
+
+ATE0
+
+AT+CWJAP_CUR="Samurai","Plink.T2wice"
+
+AT+CIPSTART="TCP","23.179.32.36",80
+
+AT+CIPSEND=52
+
+GET http://ahmedessam.freeoda.com/LED_Status.txt\r\n
